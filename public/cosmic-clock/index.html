@@ -311,7 +311,7 @@ h1 {
 <div id="tooltip"></div>
 
 <div id="event-panel">
-  <h2>2025 Events</h2>
+  <h2 id="event-panel-title">2025 Events</h2>
   <div class="filter-row">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="political">Political</button>
@@ -340,16 +340,8 @@ let height = canvas.height = window.innerHeight;
 let centerX = width / 2;
 let centerY = height / 2;
 let speedMultiplier = 1;
-const EVENT_YEAR = 2025;
 
-function nowInEventYear() {
-  const n = new Date();
-  const dim = new Date(EVENT_YEAR, n.getMonth() + 1, 0).getDate();
-  const day = Math.min(n.getDate(), dim);
-  return new Date(EVENT_YEAR, n.getMonth(), day, n.getHours(), n.getMinutes(), n.getSeconds(), n.getMilliseconds());
-}
-
-let simulatedTime = nowInEventYear();
+let simulatedTime = new Date();
 let activeFilter = 'all';
 
 window.addEventListener('resize', () => {
@@ -720,7 +712,7 @@ function draw() {
   drawCenter();
 
   if (speedMultiplier === 1) {
-    simulatedTime = nowInEventYear();
+    simulatedTime = new Date();
   } else {
     simulatedTime = new Date(simulatedTime.getTime() + 16 * speedMultiplier);
   }
@@ -729,6 +721,7 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
+document.getElementById('event-panel-title').textContent = `${simulatedTime.getFullYear()} Events`;
 updateEventsList();
 setInterval(updateEventsList, 60000);
 
@@ -737,7 +730,10 @@ document.querySelectorAll('.control-btn').forEach(btn => {
     document.querySelectorAll('.control-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     speedMultiplier = parseInt(btn.dataset.speed);
-    if (speedMultiplier === 1) simulatedTime = new Date();
+    if (speedMultiplier === 1) {
+      simulatedTime = new Date();
+      document.getElementById('event-panel-title').textContent = `${simulatedTime.getFullYear()} Events`;
+    }
   });
 });
 
