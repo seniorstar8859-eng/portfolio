@@ -52,7 +52,7 @@ export default function Education() {
                 <span className="text-2xl font-bold text-gradient">
                   {education.gpa}
                 </span>
-                <span className="text-sm text-muted">/ 4.0</span>
+                <span className="text-sm text-muted">/ 5.0</span>
               </div>
             </div>
           </div>

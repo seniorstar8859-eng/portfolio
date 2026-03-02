@@ -265,7 +265,7 @@ export const education = {
   institution: "University of Tokyo",
   degree: "Bachelor of Science in Computer Science",
   period: "2014 — 2018",
-  gpa: "3.9",
+  gpa: "4.9",
 };
 
 export const navLinks = [
