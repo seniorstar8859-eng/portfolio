@@ -31,7 +31,7 @@ export default function About() {
             className="space-y-5"
           >
             <p className="text-muted leading-relaxed">
-              I&apos;m Hiro Tanaka — my friends call me Daniel. I&apos;m a Senior Full-Stack Engineer based in Hokkaido, Japan, with over 8+ years of
+              I&apos;m Hiro Tanaka. I&apos;m a Senior Full-Stack Engineer based in Hokkaido, Japan, with over 8+ years of
               experience building and scaling production web applications. My work spans the full
               stack — from crafting performant user interfaces to designing robust backend services
               and cloud infrastructure.
